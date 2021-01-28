@@ -15,13 +15,30 @@ removeBtn2.addEventListener('click', function () {
 //Plus button event handler
 const plusBtn = document.getElementById('case-increase');
 plusBtn.addEventListener('click', function () {
+    handleProductChange(true);
+});
+
+
+//Minus button event handler
+const minusBtn = document.getElementById("case-decrease");
+minusBtn.addEventListener('click', function () {
+    handleProductChange(false);
+});
+
+
+// Product changes handler 
+function handleProductChange(isIncrease) {
     const caseInput = document.getElementById('case-count');
     const caseCount = parseInt(caseInput.value);
-    const caseNewCount = caseCount + 1;
+    if (isIncrease == true) {
+        caseNewCount = caseCount + 1;
+    }else if(isIncrease== false){
+        caseNewCount=caseCount-1;
+    }
     caseInput.value = caseNewCount;
     const caseTotal = caseNewCount * 59;
-    document.getElementById('case-total').innerText=caseTotal;
-});
+    document.getElementById('case-total').innerText = caseTotal;
+}
 
 
 //Check Out button event handler
