@@ -14,7 +14,7 @@
 
    <section>
       <div class="container">
-         <div id="cart-section" class="cart">
+         <div id="cart-area" class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div id="cart-1" class="cart-item">
                   <div class="row">
@@ -26,7 +26,7 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i id="minus" class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
+                           <input id="quantity" type="text" class="form-control text-center" value="1">
                            <button class="btn btn-default"><i id="plus" class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
@@ -44,11 +44,11 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="case-count" type="text" class="form-control text-center" value="1">
+                           <button id="case-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span  id="case-total">59</span></h5>
                         <img src="images/remove.png" id="remove-item-2" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,7 +77,7 @@
          </div>
          <div id="thank-you">
             <h1 >Thank You</h1>
-            <h3>Your Process Successful</h3>
+            <h3>Your Purchase Successfully complete</h3>
          </div>
       </div>
    </section>
