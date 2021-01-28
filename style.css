@@ -53,3 +53,9 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+#thank-you{
+	margin-top: 14em;
+	text-align: center;
+	color: #2FBE70;
+	display: none;
+}

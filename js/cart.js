@@ -20,3 +20,12 @@ function increase(clickPlus){
  
     
 }
+
+//Check Out button event handler
+const checkBtn = document.getElementById('check-out');
+checkBtn.addEventListener('click', function () {
+    const cartArea = document.getElementById("cart-section");
+    cartArea.style.display = 'none';
+    const checkArea = document.getElementById('thank-you');
+    checkArea.style.display = 'block';
+});
