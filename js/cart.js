@@ -15,29 +15,36 @@ removeBtn2.addEventListener('click', function () {
 //Plus button event handler
 const plusBtn = document.getElementById('case-increase');
 plusBtn.addEventListener('click', function () {
-    handleProductChange(true);
+    handleProductChange('case', true);
+});
+
+document.getElementById('iphone-increase').addEventListener('click', function () {
+    handleProductChange('iphone', true);
 });
 
 
 //Minus button event handler
 const minusBtn = document.getElementById("case-decrease");
 minusBtn.addEventListener('click', function () {
-    handleProductChange(false);
+    handleProductChange('case', false);
+});
+document.getElementById('iphone-decrease').addEventListener('click', function () {
+    handleProductChange('iphone', false);
 });
 
 
-// Product changes handler 
-function handleProductChange(isIncrease) {
-    const caseInput = document.getElementById('case-count');
-    const caseCount = parseInt(caseInput.value);
+// Case Product changes handler 
+function handleProductChange(product, isIncrease) {
+    const Input = document.getElementById(product + '-count');
+    const Count = parseInt(Input.value);
     if (isIncrease == true) {
-        caseNewCount = caseCount + 1;
-    }else if(isIncrease== false){
-        caseNewCount=caseCount-1;
+        NewCount = Count + 1;
+    } else if (isIncrease == false && Count > 0) {
+        NewCount = Count - 1;
     }
-    caseInput.value = caseNewCount;
-    const caseTotal = caseNewCount * 59;
-    document.getElementById('case-total').innerText = caseTotal;
+    Input.value = NewCount;
+    const caseTotal = NewCount * 59;
+    document.getElementById(product + '-total').innerText = caseTotal;
 }
 
 
