@@ -9,6 +9,7 @@ const removeBtn2 = document.getElementById('remove-item-2');
 removeBtn2.addEventListener('click', function () {
     const cartItem = document.getElementById('cart-2');
     cartItem.style.display = 'none';
+    
 });
 
 
@@ -33,18 +34,48 @@ document.getElementById('iphone-decrease').addEventListener('click', function ()
 });
 
 
-// Case Product changes handler 
+//Product changes handler 
 function handleProductChange(product, isIncrease) {
-    const Input = document.getElementById(product + '-count');
-    const Count = parseInt(Input.value);
+    const productInput = document.getElementById(product + '-count');
+    const productCount = parseInt(productInput.value);
     if (isIncrease == true) {
-        NewCount = Count + 1;
-    } else if (isIncrease == false && Count > 0) {
-        NewCount = Count - 1;
+        productNewCount = productCount + 1;
+    } else if (isIncrease == false && productCount > 0) {
+        productNewCount = productCount - 1;
     }
-    Input.value = NewCount;
-    const caseTotal = NewCount * 59;
-    document.getElementById(product + '-total').innerText = caseTotal;
+    productInput.value = productNewCount;
+    let productTotal = 0;
+    if (product == 'iphone') {
+        productTotal = productNewCount * 1219;
+    }
+    if (product == 'case') {
+        productTotal = productNewCount * 59;
+    }
+    document.getElementById(product + '-total').innerText = productTotal;
+    calculateTotal();
+}
+
+
+//Calculate Total value
+function calculateTotal() {
+    const phoneCount = getInputValue('iphone');
+    const caseCount = getInputValue('case');
+
+    const totalPrice = phoneCount * 1219 + caseCount * 59;
+    document.getElementById('total-price').innerText = totalPrice;
+
+    const tax = Math.round(totalPrice * 0.1);
+    document.getElementById('tax-amount').innerText = tax;
+
+    const grandTotal = totalPrice + tax;
+    document.getElementById('grand-total').innerText = grandTotal;
+}
+
+
+function getInputValue(product) {
+    const productInput = document.getElementById(product + '-count');
+    const productCount = parseInt(productInput.value);
+    return productCount;
 }
 
 
